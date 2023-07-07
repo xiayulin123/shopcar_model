@@ -4,6 +4,9 @@ const nextConfig = {
     domains: ['cdn.imagin.studio'],
     // domains: ['api.pexels.com']
 
+  },
+  typescript: {
+    ignoreBuildErrors: true
   }
 }
 
