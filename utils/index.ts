@@ -52,38 +52,38 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   const { model, year, make } = car
   const queries = `${make}${model}${year}`
 
-  // const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'
-  // const apiUrl = 'https://api.pexels.com/v1/search'
+  const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'
+  const apiUrl = 'https://api.pexels.com/v1/search'
 
-  // const requestConfig: AxiosRequestConfig = {
-  //   method: 'get',
-  //   url: apiUrl,
-  //   headers: {
-  //     Authorization: 'MTmyBT5k20rVxOHRn9vgcXDGMpBZzWs8rpNJiVIiT67krzFcJbNBtJ5E',
-  //     'X-Requested-With': 'XMLHttpRequest',
-  //   },
-  //   params: { query: queries, per_page: 1 },
-  // }
+  const requestConfig: AxiosRequestConfig = {
+    method: 'get',
+    url: apiUrl,
+    headers: {
+      Authorization: 'MTmyBT5k20rVxOHRn9vgcXDGMpBZzWs8rpNJiVIiT67krzFcJbNBtJ5E',
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    params: { query: queries, per_page: 1 },
+  }
 
-  // axios(requestConfig)
-  //   .then((response) => {
-  //     console.log('res:::', response.data)
-  //   })
-  //   .catch((error) => {
-  //     console.error('errror::', error)
-  //   })
+  axios(requestConfig)
+    .then((response) => {
+      console.log('res:::', response.data)
+    })
+    .catch((error) => {
+      console.error('errror::', error)
+    })
 
-  const url = new URL('https://cdn.imagin.studio/getimage')
-  url.searchParams.append('customer', '')
-  // url.searchParams.append(
-  //   'Authorization',
-  //   'MTmyBT5k20rVxOHRn9vgcXDGMpBZzWs8rpNJiVIiT67krzFcJbNBtJ5E'
-  // )
-  url.searchParams.append('make', make)
-  url.searchParams.append('modelFamily', model.split(' ')[0])
-  url.searchParams.append('zoomType', 'fullscreen')
-  url.searchParams.append('modelYear', `${year}`)
-  // url.searchParams.append('zoomLevel', zoomLevel)
-  url.searchParams.append('angle', `${angle}`)
-  return `${url}`
+  // const url = new URL('https://cdn.imagin.studio/getimage')
+  // url.searchParams.append('customer', '')
+  // // url.searchParams.append(
+  // //   'Authorization',
+  // //   'MTmyBT5k20rVxOHRn9vgcXDGMpBZzWs8rpNJiVIiT67krzFcJbNBtJ5E'
+  // // )
+  // url.searchParams.append('make', make)
+  // url.searchParams.append('modelFamily', model.split(' ')[0])
+  // url.searchParams.append('zoomType', 'fullscreen')
+  // url.searchParams.append('modelYear', `${year}`)
+  // // url.searchParams.append('zoomLevel', zoomLevel)
+  // url.searchParams.append('angle', `${angle}`)
+  // return `${url}`
 }
